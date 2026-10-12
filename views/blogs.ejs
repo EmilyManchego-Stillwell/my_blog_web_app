@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles/styles.css">
+  <title>Blogs</title>
+</head>
+<body>
+  <%- include("partials/header.ejs") %>
+
+  <div class="container" >
+    <h1 class="blog-title">Welcome to your Blogs Lot</h1>
+    <% if (blogs && blogs.length > 0) { %>
+        <ul class="blog-content">
+          <% blogs.forEach(blog => { %>
+            <li>
+              <a class="blog-link" href="/blogs/<%= blog.flName %>"><%= blog.title %></a>
+              <form class="blog-delete" action="/blogs/<%= blog.flName %>?_method=DELETE" method="POST">
+                <button type="submit" class="button-delete">Delete</button>
+              </form>
+            </li>
+          <% }) %>
+        </ul>
+    <% } else { %>
+        <p class="blog-content"> No blogs have been posted yet. Click the Home link to start your lot!</p>
+    <% } %>
+  </div>
+  <script src="/js/delete.js"></script>
+  
+  <%- include("partials/footer.ejs") %>
+</body>
+</html>

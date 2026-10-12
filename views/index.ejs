@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles/styles.css">
+  <title>Community Blog Lot by EMS</title>
+</head>
+<body>
+  <%- include("partials/header.ejs") %> 
+  <div id="home-container">
+    <div id="monitor-container">
+      <h1 class="monitor-header">The Blog Lot</h1>
+      <h2 class="monitor-header">Start your lot to post your thoughts!</h2>
+      <p class="monitor-message">(Fill out the forms below to create your next blog!)</p>
+      <form id="monitor-form" action="/blogs" method="POST">
+        <input type="text" name="blogTitle" placeholder="Blog Title">
+        <textarea id="initial-blog" name="blogContent"></textarea>
+        <input type="submit" value="OK" class="ok-button">
+      </form>
+    </div>
+  </div>
+  <%- include("partials/footer.ejs") %>
+</body>
+
+</html>

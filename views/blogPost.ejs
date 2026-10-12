@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles/styles.css">
+  <title><%= title %></title>
+</head>
+<body>
+  <%- include("partials/header.ejs") %>
+  <div class="container" id="blog-post">
+    <div class="blog-details">
+      <h1 class="blog-title"><%= title %></h1>
+      <p class="blog-date"><%= postDate %></p>
+      <button class="button-edit">Edit</button>
+    </div>
+    <p class="blog-content"><%= content %></p>
+    <div class="divider"><hr></div>
+    <div id="blog-edit-container">
+      <form action="/blogs/<%= flName %>?_method=PATCH" class="blog-edit" method="POST">
+        <textarea name="blogContent" id="edit-space"><%= content %></textarea>
+        <button type="submit" class="button-save">Save Changes</button>
+      </form>
+    </div>
+  </div>
+  <script src="/js/edit.js"></script>
+  <%- include("partials/footer.ejs") %>
+</body>
+</html>
